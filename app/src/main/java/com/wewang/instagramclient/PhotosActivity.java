@@ -49,7 +49,7 @@ public class PhotosActivity extends AppCompatActivity {
                         JSONObject photoJSON = photosJson.getJSONObject(i);
                         InstagramPhoto photo = new InstagramPhoto();
                         photo.setUsername(photoJSON.getJSONObject("user").getString("username"));
-                        photo.setCaption(photoJSON.getJSONObject("caption").getString("text"));
+                        photo.setCaption(getCaptionNullSafe(photoJSON));
                         photo.setImageUrl(photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url"));
                         photo.setImageHeight(photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height"));
                         photo.setLikesCount(photoJSON.getJSONObject("likes").getInt("count"));
@@ -70,6 +70,14 @@ public class PhotosActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String getCaptionNullSafe(JSONObject photoJSON) {
+        try {
+            return photoJSON.getJSONObject("caption").getString("text");
+        } catch (Exception e) {
+            return "";
+        }
     }
 
     @Override
