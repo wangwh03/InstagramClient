@@ -5,6 +5,7 @@ package com.wewang.instagramclient.models;
  */
 public class InstagramPhoto {
     private String username;
+    private String userProfilePicture;
     private String caption;
     private String imageUrl;
     private int imageHeight;
@@ -48,5 +49,13 @@ public class InstagramPhoto {
 
     public void setLikesCount(int likesCount) {
         this.likesCount = likesCount;
+    }
+
+    public String getUserProfilePicture() {
+        return userProfilePicture;
+    }
+
+    public void setUserProfilePicture(String userProfilePicture) {
+        this.userProfilePicture = userProfilePicture;
     }
 }

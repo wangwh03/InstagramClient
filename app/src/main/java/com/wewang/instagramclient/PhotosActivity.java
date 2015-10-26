@@ -43,12 +43,14 @@ public class PhotosActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 JSONArray photosJson = null;
+                Log.d("DEBUG", response.toString());
                 try {
                     photosJson = response.getJSONArray("data");
                     for (int i = 0; i < photosJson.length(); i++) {
                         JSONObject photoJSON = photosJson.getJSONObject(i);
                         InstagramPhoto photo = new InstagramPhoto();
                         photo.setUsername(photoJSON.getJSONObject("user").getString("username"));
+                        photo.setUserProfilePicture(photoJSON.getJSONObject("user").getString("profile_picture"));
                         photo.setCaption(getCaptionNullSafe(photoJSON));
                         photo.setImageUrl(photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url"));
                         photo.setImageHeight(photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height"));
