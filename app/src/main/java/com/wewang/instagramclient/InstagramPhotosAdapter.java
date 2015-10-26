@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.wewang.instagramclient.models.InstagramPhoto;
 
 import java.util.List;
 
@@ -31,10 +32,10 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
 
-        tvCaption.setText(photo.caption);
+        tvCaption.setText(photo.getCaption());
         ivPhoto.setImageResource(0);
 
-        Picasso.with(getContext()).load(photo.imageUrl).into(ivPhoto);
+        Picasso.with(getContext()).load(photo.getImageUrl()).into(ivPhoto);
         return convertView;
     }
 }

@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.wewang.instagramclient.models.InstagramPhoto;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,11 +48,11 @@ public class PhotosActivity extends AppCompatActivity {
                     for (int i = 0; i < photosJson.length(); i++) {
                         JSONObject photoJSON = photosJson.getJSONObject(i);
                         InstagramPhoto photo = new InstagramPhoto();
-                        photo.username = photoJSON.getJSONObject("user").getString("username");
-                        photo.caption = photoJSON.getJSONObject("caption").getString("text");
-                        photo.imageUrl = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url");
-                        photo.imageHeight = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
-                        photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
+                        photo.setUsername(photoJSON.getJSONObject("user").getString("username"));
+                        photo.setCaption(photoJSON.getJSONObject("caption").getString("text"));
+                        photo.setImageUrl(photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url"));
+                        photo.setImageHeight(photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height"));
+                        photo.setLikesCount(photoJSON.getJSONObject("likes").getInt("count"));
 
                         photos.add(photo);
                     }
@@ -65,6 +66,7 @@ public class PhotosActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.e("ERROR", "Failed to fetch photos");
             }
         });
 
