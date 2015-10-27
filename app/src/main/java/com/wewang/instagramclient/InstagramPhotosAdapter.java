@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 import com.wewang.instagramclient.models.InstagramPhoto;
 
+import java.text.NumberFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         tvUsername.setText(photo.getUsername());
         tvCaption.setText(photo.getCaption());
         ivPhoto.setImageResource(0);
-        likesCount.setText(photo.getLikesCount() + "");
+        likesCount.setText(NumberFormat.getIntegerInstance().format(photo.getLikesCount()));
         relativeTimestamp.setText(DateUtils.getRelativeTimeSpanString(photo.getCreatedTime()*1000,
                 new Date().getTime(), 0));
 

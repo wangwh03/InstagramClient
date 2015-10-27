@@ -27,7 +27,7 @@
         android:layout_alignBottom="@+id/ivUserProfileImage"
         android:layout_toRightOf="@+id/ivUserProfileImage"
         android:layout_toEndOf="@+id/ivUserProfileImage"
-        android:textColor="#21476F" />
+        android:textColor="@color/navy_blue" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:padding="10dp"
-        android:textColor="#9D9D9D"/>
+        android:textColor="@color/light_gray"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -48,8 +48,7 @@
         android:scaleType="fitXY"
         android:layout_below="@+id/tvUsername"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#eeeeee"/>
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,7 +58,7 @@
         android:layout_below="@+id/ivPhoto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="#21476F"
+        android:textColor="@color/navy_blue"
         android:padding="5dp" />
 
     <TextView
@@ -71,10 +70,9 @@
         android:layout_toRightOf="@+id/tvLikesCounts"
         android:layout_toEndOf="@+id/tvLikesCounts"
         android:layout_alignBottom="@+id/tvLikesCounts"
-        android:textColor="#21476F"
-        android:padding="5dp"
-        android:paddingLeft="0dp" />
-
+        android:textColor="@color/navy_blue"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
