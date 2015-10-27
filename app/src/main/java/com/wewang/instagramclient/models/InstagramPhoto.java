@@ -1,5 +1,7 @@
 package com.wewang.instagramclient.models;
 
+import java.util.Date;
+
 /**
  * Created by wewang on 10/25/15.
  */
@@ -10,6 +12,7 @@ public class InstagramPhoto {
     private String imageUrl;
     private int imageHeight;
     private int likesCount;
+    private long createdTime;
 
     public String getUsername() {
         return username;
@@ -57,5 +60,13 @@ public class InstagramPhoto {
 
     public void setUserProfilePicture(String userProfilePicture) {
         this.userProfilePicture = userProfilePicture;
+    }
+
+    public long getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(long createdTime) {
+        this.createdTime = createdTime;
     }
 }

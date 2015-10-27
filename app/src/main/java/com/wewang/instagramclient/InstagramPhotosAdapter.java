@@ -2,6 +2,7 @@ package com.wewang.instagramclient;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 import com.wewang.instagramclient.models.InstagramPhoto;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,14 +39,19 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
         TextView likesCount = (TextView) convertView.findViewById(R.id.tvLikesCounts);
+        TextView relativeTimestamp = (TextView) convertView.findViewById(R.id.tvRelativeTimestamp);
 
         ivUserProfileImage.setImageResource(0);
         tvUsername.setText(photo.getUsername());
         tvCaption.setText(photo.getCaption());
         ivPhoto.setImageResource(0);
         likesCount.setText(photo.getLikesCount() + "");
+        relativeTimestamp.setText(DateUtils.getRelativeTimeSpanString(photo.getCreatedTime()*1000,
+                new Date().getTime(), 0));
 
-        Picasso.with(getContext()).load(photo.getImageUrl()).into(ivPhoto);
+        Picasso.with(getContext())
+                .load(photo.getImageUrl())
+                .into(ivPhoto);
 
         Transformation transformation = new RoundedTransformationBuilder()
                 .borderColor(Color.GRAY)
